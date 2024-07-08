@@ -6,11 +6,15 @@
     </x-slot>
 
     <div class="container mx-auto px-4 py-6">
-        <h1 class="text-2xl font-semibold mb-6 text-white dark:text-gray-200 leading-tight">Usuarios</h1>
+        <h1 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Usuarios</h1><br>
 
         <a href="{{ route('adminprofile.create') }}" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mb-6">
             Crear perfil
         </a>
+        <a href="{{ route('adminprofile.pdf') }}" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+        Consultar PDF
+        </a>
+
 
         @if (session('success'))
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-6" role="alert">

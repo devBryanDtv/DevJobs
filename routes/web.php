@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VacantePdfController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\AdminProfileController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,6 +26,7 @@ Route::resource('empresas', EmpresaController::class)->middleware('auth');
 
 Route::get('/vacantes/{id}/pdf', [VacantePdfController::class, 'generarPdf'])->name('vacantes.pdf');
 
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -33,5 +35,8 @@ Route::middleware('auth')->group(function () {
 
 // Administrador de perfiles
 Route::resource('adminprofile', AdminProfileController::class)->middleware('auth');
+
+Route::get('/adminprofile.pdf', [AdminProfileController::class, 'generarPdf'])->middleware('auth')->name('adminprofile.pdf');
+
 
 require __DIR__.'/auth.php';
